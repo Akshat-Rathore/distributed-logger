@@ -5,12 +5,18 @@ The Distributed Logger is designed to streamline log management and sharing with
 ## Architecture and Design
 The architecture comprises several key components:
 
-### Bytecode Logger: Implements bytecode manipulation to capture and log print statements with line numbers.
-### FileWatcher: Monitors the .dlogger directory for new log entries.
-### KafkaLogger: Handles the production of log messages to Kafka topics.
-### MainController: Manages the environment setup and schedules the FileWatcher.
-### LogConsumer: Allows users to query and retrieve logs based on username and classname.
-### Flowchart: A flowchart would illustrate the interactions among these components, showcasing the system's modular design.
+### Bytecode Logger:
+ Implements bytecode manipulation to capture and log print statements with line numbers.
+### FileWatcher:
+ Monitors the .dlogger directory for new log entries.
+### KafkaLogger:
+ Handles the production of log messages to Kafka topics.
+### MainController:
+ Manages the environment setup and schedules the FileWatcher.
+### LogConsumer:
+ Allows users to query and retrieve logs based on username and classname.
+### Flowchart:
+ A flowchart would illustrate the interactions among these components, showcasing the system's modular design.
 
 ## Data Flow
 Data flows as follows:
