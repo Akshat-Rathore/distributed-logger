@@ -1,0 +1,32 @@
+# Directory containing JAR files
+JAR_DIR=/home/maokami/Documents/dl/logger/src/main/resources/jars
+
+# Automatically include all JARs in the specified directory
+CLASS_PATH=$(shell find $(JAR_DIR) -name '*.jar' | tr '\n' ':')
+# Directory to store compiled class files
+OUTPUT_DIR=out
+
+# Source files directory
+SOURCE_DIR=.
+
+# Targets
+all: compile  run
+
+setup:
+	@mkdir -p .dlogger
+
+compile: setup
+	@echo "Compiling Java classes..."
+	@mkdir -p $(OUTPUT_DIR)
+	@javac -classpath $(CLASS_PATH) -d $(OUTPUT_DIR) $(SOURCE_DIR)/KafkaLogger.java $(SOURCE_DIR)/FileWatcher.java $(SOURCE_DIR)/MainController.java
+
+run: compile
+	@echo "Running MainController..."
+	@java  -classpath $(OUTPUT_DIR):$(CLASS_PATH) MainController 
+
+get: 
+	@echo "Fetching Logs..."
+	@java  -classpath $(OUTPUT_DIR):$(CLASS_PATH) LogConsumer.java
+
+
+.PHONY: all compile jar run clean
