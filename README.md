@@ -15,8 +15,6 @@ The architecture comprises several key components:
  Manages the environment setup and schedules the FileWatcher.
 ### LogConsumer:
  Allows users to query and retrieve logs based on username and classname.
-### Flowchart:
- A flowchart would illustrate the interactions among these components, showcasing the system's modular design.
 
 ## Data Flow
 Data flows as follows:
